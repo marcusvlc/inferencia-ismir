@@ -55,3 +55,17 @@ ci1 = boot(data = comparacao1,
 ci1
 ```
 
+```{r}
+
+baseline = dados %>% filter(scenario == "baseline") %>% pull(satisfaction)
+updown = dados %>% filter(scenario == "up/downvoting") %>% pull(satisfaction)
+combined = dados %>% filter(scenario == "combined") %>% pull(satisfaction)
+
+
+df = data.frame(baseline = baseline, updown = updown, combined = combined)
+
+write.csv(df, 'jukebox.csv', row.names = FALSE)
+
+```
+
+
